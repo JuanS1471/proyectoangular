@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
 import { ExampleComponent } from './example/example.component';
-import { SharedModule } from './shared/shared.module';
+import { LayoutComponent } from './layout/layout.component';
+
 
 @NgModule({
   declarations: [
-    CoreModule,
-    SharedModule,
     AppComponent,
-    ExampleComponent
+    ExampleComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule
