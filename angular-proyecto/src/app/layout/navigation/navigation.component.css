@@ -1,7 +1,0 @@
-.dsc-navigation {
-    height: calc(68px - 1rem);
-    display: flex;
-    justify-content: space-between;
-    padding: 8.5rem 1rem;
-    background: black;
-}
