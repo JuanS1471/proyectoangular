@@ -8,9 +8,17 @@ import { USERS_DATA } from 'src/app/data/constants/users.const';
 })
 export class UserListComponent implements OnInit {
 
-  public users: ICardUser[] = USERS_DATA;
+  public users: ICardUser[]; // USERS_DATA;
 
-  constructor() { }
+  constructor(
+    private userService: UserService
+  ) {
+    this.userService.getAllUsers().subscribe( r => {
+      if (!r.error) {
+        this.users = r.data;
+      }
+    });
+  }
 
   ngOnInit() {
   }
