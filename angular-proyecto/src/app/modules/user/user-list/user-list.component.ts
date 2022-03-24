@@ -8,8 +8,30 @@ import { USERS_DATA } from 'src/app/data/constants/users.const';
 })
 export class UserListComponent implements OnInit {
 
-  public users: ICardUser[]; // USERS_DATA;
+  public users !: ICardUser[]; // USERS_DATA;
+  public tasks : {title:string}[] = [
+    {
+      title: 'primera'
+    },
+    {
+      title: 'segunda'
+    },
+    {
+      title: 'tercera'
+    }
+  ];
 
+  public options = [
+    'un',
+    'dos',
+    'tres',
+    'cuatro',
+    'cinco',
+    'doce',
+    'veinte',
+    'ningún'
+  ]
+  
   constructor(
     private userService: UserService
   ) {
@@ -19,6 +41,20 @@ export class UserListComponent implements OnInit {
       }
     });
   }
+
+  trackByUserId(index, item){
+    return item.id;
+  }
+
+  newUser () {
+    this.users.push(
+      id: 23,
+      age: 30,
+      avatar: 'https://www.esneca.com/wp-content/uploads/cuanto-gana-un-consultor-sap.jpg',
+      description: 'Soy trabajador',
+      name: 'Orlando',
+      work: 'Consultor'
+    }
 
   ngOnInit() {
   }
