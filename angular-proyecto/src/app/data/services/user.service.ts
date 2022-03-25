@@ -22,8 +22,13 @@ export class UserService extends ApiClass {
     .pipe(
       map( r => {
         response.data = r;
+        r.map(i => {
+          If (i.gender === '' || i.gender === nul) {
+            i.gender = 'No encontrado';
+          }
+        });
         return response;
-      }),
+      ]);
       catchError(this.error)
     );
   }
