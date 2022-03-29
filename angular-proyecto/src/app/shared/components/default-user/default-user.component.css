@@ -1,7 +1,30 @@
- .dsc-error {
+ .dsc-card {
        width: 200px;
        margin: 2rem 0rem;
        padding: 0.5rem;
        border-radius: 5px;
        color: white;
- }
+      &:hover{
+            transform: scale:(1.05);
+       }
+      __title {
+            border-bottom: 1px solid #fff;
+            margin-bottom: 0.5rem;
+                                     
+      }
+         __body {
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+         }
+      __actions {
+            display: flex;
+            justify-content: center;
+      }
+      -disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            &:hover{
+            transform: none;
+            }
+      }
+}

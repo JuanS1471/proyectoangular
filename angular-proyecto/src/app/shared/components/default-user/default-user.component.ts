@@ -7,6 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefaultUserComponent implements OnInit {
 
+  public cards: {
+    title: string;
+    body?: string;
+    isPrimary: boolean;
+    isDisabled: boolean;
+  }[] = [
+    {
+      title: 'Tarjeta Secundaria',
+      isPrimary: false,
+      isDisabled: false
+    },
+    {
+      title: 'Tarjeta Principal',
+      isPrimary: true,
+      isDisabled: false
+    },
+    {
+      title: 'Tarjeta Secundaria',
+      isPrimary: false,
+      isDisabled: false
+    },
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,5 +50,20 @@ export class DefaultUserComponent implements OnInit {
     this.msg = '*El envio fue exitoso';
     this.isshow= true;
   }
-
-}
+  changeStatus (card: {
+    title: string;
+    body?: string;
+     isPrimary: boolean;
+     isDisabled: boolean;
+   }) {
+     card.isPrimary !card.isPrimary;
+   }
+   disabledCard(card: {
+    title: string;
+     body?: string;
+     isPrimary: boolean;
+     isDisabled: boolean;
+   }) {
+     card.isDisabled = !card.isDisabled;
+    }
+  }
