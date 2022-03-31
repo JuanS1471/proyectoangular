@@ -8,10 +8,17 @@ import {catchError, map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService extends ApiClass {
-
+  public testVariable = '';
   /**
    * Get all user from api
    */
+  setTitle(l: string){
+    this.testVariable = l;
+  }
+
+  clearTitle(){
+    this.testVariable = 'nuevo titulo'
+  }
   getAllUsers(): Observable<{
     error: boolean,
     msg: string;

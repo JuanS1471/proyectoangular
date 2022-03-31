@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ICardUser } from 'src/app/shared/components/cards/icard-user.metadata';
 import { USERS_DATA } from 'src/app/data/constants/users.const';
 import { CAROUSEL_DATA_ITEMS } from 'src/app/data/constants/carousel.const';
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/data/services/user.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
   public carrouselData: ICarouselItem[];
   public users !: ICardUser[]; // USERS_DATA;
   public title: string;
@@ -43,7 +43,8 @@ export class UserListComponent implements OnInit {
   ) {
     this.carrouselData = CAROUSEL_DATA_ITEMS
     this.users = [];
-    this.title = "es un titulo"
+    this.$sUser.setTitle('COMPONENTE')
+    this.title = this.$sUser.getTitle();
     this.$sUser=this.userService;
     // this.userService.getAllUsers().subscribe( r => {
     //   if (!r.error) {
@@ -73,5 +74,12 @@ export class UserListComponent implements OnInit {
    this.subs = this.$sUser
     .getAllUsers()
     .subscribe( r => this.users = (r.error) ? [] : r.data );
+  }
+
+  ngOnDestroy(): void {
+      if(this.subs){
+        this.subs.unsubscribe();
+        this.$sUser.clearTitle();
+      }
   }
 }
