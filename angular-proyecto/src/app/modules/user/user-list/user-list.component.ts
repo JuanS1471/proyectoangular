@@ -4,6 +4,8 @@ import { USERS_DATA } from 'src/app/data/constants/users.const';
 import { CAROUSEL_DATA_ITEMS } from 'src/app/data/constants/carousel.const';
 import { ICarouselItem } from 'src/app/shared/components/carousel/Icarousel-item.metadata';
 import { UserService } from 'src/app/data/services/user.service';
+import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -13,7 +15,8 @@ export class UserListComponent implements OnInit, OnDestroy {
   public carrouselData: ICarouselItem[];
   public users !: ICardUser[]; // USERS_DATA;
   public title: string;
-  public subs;
+  public subs !: Subscription;
+  public pricePesos !: number;
   public $sUser !: UserService;
   public tasks : {title:string}[] = [
     {

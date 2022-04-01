@@ -1,12 +1,17 @@
 <div class="row">
     <div class="col-12">
         <app-title-h1 [text]="title"></app-title-h1>
+        <app-title-h1 [text]="title" [pricePesos]="pricePesos"></app-title-h1>
+        <button class="btn btn-primary" (click)="addAmount()">Agregar 10 pesos</button>
     </div>
+
+
     <!-- <ng-container *ngIf="users; else elseUsersLoader;">
         <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-md-6 col-xl-3"></app-card-user>
     </ng-container> -->
 
-    <ng-container *ngIf="users; else elseusersloader;">
+
+    <!-- <ng-container *ngIf="users; else elseusersloader;">
         <app-card-user [data]="user" *ngFor="let user of users;trackBy: trackByUserId" class="col-12 col-md-6 col-xl-3">
         </app-card-user>
     </ng-container>
@@ -20,7 +25,7 @@
         <div class="col-12" *ngFor="let task of tasks;index as i;:">
             <h2>tarea #</h2>
         </div>
-    </div>
+    </div> -->
     <!----------------------
     How to use index
 ------------------------->

@@ -12,6 +12,10 @@ export class UserService extends ApiClass {
   /**
    * Get all user from api
    */
+  getTitle(): string{
+    return this.testVariable;
+  }
+
   setTitle(l: string){
     this.testVariable = l;
   }
