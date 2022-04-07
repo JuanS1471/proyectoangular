@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { LEFT_NAV_MENUS } from 'src/app/data/constants/left-nav-menu.const';
+import { ILeftNavMenu } from 'src/app/data/interfaces';
 
 @Component({
   selector: 'app-left-nav',
@@ -13,7 +15,7 @@ export class LeftNavComponent implements OnInit {
   public position = 'Gerente';
   public avatar = 'assets/images/defaults/avatar.jpg';
   public logo = 'assets/images/defaults/logo.png';
-
+  public menus: ILeftNavMenu[] = LEFT_NAV_MENUS;
   constructor() { }
 
   ngOnInit(): void {

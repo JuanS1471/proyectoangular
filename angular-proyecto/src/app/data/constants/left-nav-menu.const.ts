@@ -1,5 +1,5 @@
 import { ILeftNavMenu } from '../interfaces';
-import { faUser, faCog, faClipboard, faComment, faHeart, faBookmark, faChartLine, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faCog, faClipboard, faComment, faHeart, faBookmark, faChartLine, faCogs, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 export const LEFT_NAV_MENUS: ILeftNavMenu[] = [
     {
@@ -27,7 +27,7 @@ export const LEFT_NAV_MENUS: ILeftNavMenu[] = [
         title: 'Servicios',
         links: [
             {
-                icon: faYoutube,
+                icon: faVideo,
                 name: 'Videos'
             },
             {
