@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ICardUser } from 'src/app/shared/components/cards/icard-user.metadata';
 import { USERS_DATA } from 'src/app/data/constants/users.const';
 import { CAROUSEL_DATA_ITEMS } from 'src/app/data/constants/carousel.const';
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit, OnDestroy {
+export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   public carrouselData: ICarouselItem[];
   public users !: ICardUser[]; // USERS_DATA;
   public title: string;
@@ -77,6 +77,10 @@ export class UserListComponent implements OnInit, OnDestroy {
    this.subs = this.$sUser
     .getAllUsers()
     .subscribe( r => this.users = (r.error) ? [] : r.data );
+  }
+  
+  ngAfterViewInit(): void {
+      
   }
 
   ngOnDestroy(): void {
