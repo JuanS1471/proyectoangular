@@ -1,14 +1,15 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-title-h1',
   templateUrl: './title-h1.component.html',
   styleUrls: ['./title-h1.component.scss']
 })
-export class TitleH1Component implements OnInit, OnChanges {
+export class TitleH1Component implements  OnChanges, DoCheck {
  @Input() text = '';
  @Input() type: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'dark' = 'primary';
  @Input() pricePesos: number;
+ @Input() data: Array<any> = [];
  public priceDolar: number;
  public priceEuro: number;
   constructor() { 
@@ -19,9 +20,16 @@ export class TitleH1Component implements OnInit, OnChanges {
     this.priceEuro = 0;
 
   }
-  ngOnInit(): void {
-    
+
+  ngDoCheck(): void {
+    this.priceDolar = this.pricePesos * this.getCurrentDollarApi();
+    this.priceEuro = this.pricePesos * this.getCurrentEuroApi();
+    this.data.map(i =>(
+      i.isActive = true;
+    ));
+    console.log(this.data);
   }
+ 
 
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -29,6 +37,9 @@ export class TitleH1Component implements OnInit, OnChanges {
         this.pricePesos = changes.pricePesos.currentValue;
         this.priceDolar = this.pricePesos * this.getCurrentDollarApi();
         this.priceEuro = this.pricePesos * this.getCurrentEuroApi();
+      }
+      if(changes.data && changes.data.currentValue){
+        console.log('data changes')
       }
   }
 

@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs';
 export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   public carrouselData: ICarouselItem[];
   public users !: ICardUser[]; // USERS_DATA;
+  public obj: array<any>;
   public title: string;
   public subs !: Subscription;
   public pricePesos !: number;
@@ -49,6 +50,7 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.$sUser.setTitle('COMPONENTE')
     this.title = this.$sUser.getTitle();
     this.$sUser=this.userService;
+    this.obj = [{id: 1, name:'primero'}]
     // this.userService.getAllUsers().subscribe( r => {
     //   if (!r.error) {
     //     this.users = r.data;
@@ -81,6 +83,13 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   
   ngAfterViewInit(): void {
       
+  }
+
+  addAmount(){
+    this.obj.push({
+      id: this.obj.length + 1,
+      name: 'otro'
+    })
   }
 
   ngOnDestroy(): void {
