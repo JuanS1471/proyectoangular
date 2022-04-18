@@ -18,9 +18,13 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   public title: string;
   public subs !: Subscription;
   public pricePesos !: number;
+  public stringvar: string;
+  public dateVar: number;
+  public decimalVar: number;
+  public currencyVar: number;
   public $sUser !: UserService;
   public tasks : {title:string}[] = [
-    {
+    {s
       title: 'primera'
     },
     {
@@ -56,6 +60,10 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
     //     this.users = r.data;
     //   }
     // });
+    this.stringvar = 'Hola';
+    this.dateVar = (new Date()).getTime();
+    this.currencyVar = 1232456.21;
+    this.decimalVar = 12.24567
   }
 
   trackByUserId(index, item){
