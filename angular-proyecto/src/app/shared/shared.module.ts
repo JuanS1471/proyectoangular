@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import * as fromComponents from './components';
-
+import * as fromPipes from './pipes';
 @NgModule({
   imports: [
     FormsModule,
@@ -12,13 +12,14 @@ import * as fromComponents from './components';
     HttpClientModule,
     CommonModule
   ],
-  declarations: [...fromComponents.components],
+  declarations: [...fromComponents.components, ...fromPipes.pipes],
   exports: [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    ...fromComponents.components
+    ...fromComponents.components,
+    ...fromPipes.pipes
   ]
 })
 export class SharedModule { }

@@ -12,6 +12,7 @@
         <p>Currency: {{currencyVar | currency}}</p>
         <p>Decimal: {{decimalVar | number:''}}</p>
         <p>Porcentaje: {{decimalVar | percent}}</p>
+        <p>Custom Pipe: {{user.name | greeting:user.gender }}</p>
         <app-title-h1 [text]="title"></app-title-h1>
         <app-title-h1 [text]="title" [pricePesos]="pricePesos"></app-title-h1>
         <button class="btn btn-primary" (click)="addAmount()">Agregar 10 pesos</button>

@@ -23,8 +23,14 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
   public decimalVar: number;
   public currencyVar: number;
   public $sUser !: UserService;
+  public user: {
+    name: string;
+    role: string;
+    gender: 'M' | 'F';
+
+  };
   public tasks : {title:string}[] = [
-    {s
+    {
       title: 'primera'
     },
     {
@@ -63,7 +69,12 @@ export class UserListComponent implements OnInit, OnDestroy, AfterViewInit {
     this.stringvar = 'Hola';
     this.dateVar = (new Date()).getTime();
     this.currencyVar = 1232456.21;
-    this.decimalVar = 12.24567
+    this.decimalVar = 12.24567;
+    this.user = {
+      name: 'Ivan',
+      gender: 'M',
+      role:'admin'
+    }
   }
 
   trackByUserId(index, item){
