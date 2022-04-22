@@ -1,1 +1,2 @@
-export * from './ui/ileft-nav-menu.metadata'
+export * from './ui/ileft-nav-menu.metadata';
+export * from './services/irresponse-validations.metadata';
