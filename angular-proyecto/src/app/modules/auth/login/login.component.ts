@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,46 +8,16 @@ import { Component} from '@angular/core';
 })
 export class LoginComponent {
 
-  public loginForm: { 
-    email: {
-      val: string;
-      error: string;
-      isValid: () => boolean
-    },
-    password: {
-      val: string;
-      error: string;
-      isValid: () => boolean
+  public loginForm: FormGroup;
+    constructor( private FormBuilder: FormBuilder){
+     
+      this.loginForm = this.FormBuilder.group({
+        email: ['', [Validators.required, Validators.pattern('^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')]],
+        password: ['', [Validators.required]]
+      })
     }
-  };
-  constructor() {
-    this.loginForm = {
-      email: {
-        val: '',
-        error: '*el email es necesario',
-        isValid(){
-          const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\-[^<>()\[\]\\.,;:\s@"]+)*)](".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\. [0-9]{1,3}\. [0-9]$/
-        
-          if(this.val === ''){
-            this.error = '*El email es requerido'
-          }else {
-            this.error = '*El Email no es valido'
-          }
-          return pattern.test(this.val);
-        }
-      },
-      password: {
-        val: '',
-        error: '*La contraseña es requerida',
-        isValid(){
-          return(this.val.length > 0);
-        }
-      }
-    }
-  }
-
-  get isValidForm(){
-    return(this.loginForm.email.isValid() && this.loginForm.password.isValid());
+  autenticate(){
+    console.log('autenticate')
   }
 
 }

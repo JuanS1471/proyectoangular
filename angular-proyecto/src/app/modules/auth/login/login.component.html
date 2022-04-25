@@ -1,26 +1,34 @@
 
+    
+
     <div class="login-container">
         <div class="login-form">
             <img src="/assets/images/logo_main.png" alt="Logo" class="login-form-logo">
+            <form [formGroup]="loginForm" (ngSubmit)="autenticate()">
             <div class="login-form-content">
+                
                 <h1>Bienvenido de nuevo</h1>
                 <p>Gracias por volver a tu sitio favorito, por favor llenar el formulario.</p>
+                
+
+                
                 <div class="login-form-input">
                     <label>Email*: </label>
-                    <input type="email" placeholder="Email" [(ngModel)]="loginForm.email.val">
-                    <small class="bg danger text light at 1 px 2 py 1" *ngIf="!loginForm.email.isValid() && password.touched">{{loginForm.email.error}}</small>
+                    <input type="email" placeholder="Email" formControlName="email">
+                 <!-- <small class="bg danger text light at 1 px 2 py 1" *ngIf="!loginForm.email.isValid() && password.touched">{{loginForm.email.error}}</small> -->
                 </div>
                 <div class="login-form-input">
                     <label>Contraseña*:</label>
-                    <input type="password" placeholder="Contraseña" [(ngModel)]="loginForm.password.val" #password="ngModel">
-                    <small class="bg danger text light at 1 px 2 py 1" *ngIf="!loginForm.password.isValid() && password.touched">{{loginForm.password.error}}</small>
+                    <input type="password" placeholder="Contraseña" formControlName="password">
+                    <!-- <small class="bg danger text light at 1 px 2 py 1" *ngIf="!loginForm.password.isValid() && password.touched">{{loginForm.password.error}}</small> -->
                 </div>
                 <small>Olvidé contraseña</small>
                 <div class="login-form-buttons">
                     <button class="login-form-buttons_signup">Registrarse</button>
-                    <button class="login-form-buttons_signin" [disabled]="!isValidForm"> Iniciar sesión</button>
+                    <button class="login-form-buttons_signin" type="submit" [disabled]="!loginForm.valid"> Iniciar sesión</button>
                 </div>
             </div>
+        </form>
             <div class="login-form-footer">
                 <div class="login-form-footer_links">
                     <a href="#">Acerca de</a>
