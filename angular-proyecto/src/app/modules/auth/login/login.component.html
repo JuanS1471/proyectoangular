@@ -11,12 +11,40 @@
                 <p>Gracias por volver a tu sitio favorito, por favor llenar el formulario.</p>
                 
 
-                
+                <!-- Nombre -->
+                <div formGroupName="person">
+                    <div class="login-form-input">
+                        <label>Nombre*: </label>
+                        <input type="text" placeholder="Nombre" formControlName="name">
+                        <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
+                            *ngIf="fp.name.errors && loginSubmitted"
+                        >
+                        <ng-container [ngSwitch]="fp.name.value">
+                        <ng-container *ngSwitchCase="''">El nombre es requerido!</ng-container>
+                        <ng-container *ngSwitchDefault>El nombre es invalido!</ng-container >
+                        </ng-container >
+                        </small>
+                    </div>
+                    <div class="login-form-input">
+                        <label>Apellido*: </label>
+                        <input type="text" placeholder="Apellido" formControlName="lastname">
+                        <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
+                            *ngIf="fp.lastname.errors && loginSubmitted"
+                        >
+                        <ng-container [ngSwitch]="fp.lastname.value">
+                        <ng-container *ngSwitchCase="''">El nombre es requerido!</ng-container>
+                        <ng-container *ngSwitchDefault>El nombre es invalido!</ng-container >
+                        </ng-container >
+                        </small>
+                    </div>
+                </div>
+                <!-- Email -->
                 <div class="login-form-input">
                     <label>Email*: </label>
                     <input type="email" placeholder="Email" formControlName="email">
                  <!-- <small class="bg danger text light at 1 px 2 py 1" *ngIf="!loginForm.email.isValid() && password.touched">{{loginForm.email.error}}</small> -->
                 </div>
+                <!-- Contraseña -->
                 <div class="login-form-input">
                     <label>Contraseña*:</label>
                     <input type="password" placeholder="Contraseña" formControlName="password">
