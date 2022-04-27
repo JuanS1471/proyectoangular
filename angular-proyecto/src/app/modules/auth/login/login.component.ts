@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +17,25 @@ export class LoginComponent {
         person: this.FormBuilder.group({
           name: ['',Validators.required, Validators.maxLength(35)],
           lastname: ['',Validators.required, Validators.maxLength(35)]
-        })
+        }),
+        interests: this.FormBuilder.array([
+          this.FormBuilder.control('',[Validators.required, Validators.minLength(10)])
+        ])
       })
     }
     get fp(){
       return this.loginForm.controls.person.controls;
+    }
+
+    get int(){
+      return this.loginForm.get('interests') as FormArray;
+    }
+
+    addInt(){
+      this.int.push(this.FormBuilder.control('',[Validators.required, Validators.minLength(10)]))
+    }
+    delInt(index: number){
+      this.int.removeAt(index);
     }
   autenticate(){
     console.log('autenticated', this.loginForm.value);

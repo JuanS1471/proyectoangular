@@ -57,6 +57,24 @@
                 </div>
             </div>
         </form>
+        <!-- Interests -->
+        <div formArrayName="interests">
+            <button (click)="addInt()" type="button">
+                Agregar
+            </button>
+            <ng-container *ngFor="let interest of interests; let i=index;">
+                <div class="login-form-input">
+                    <label>Interes*: <span (click)="delInt()">X</span></label>
+                    <input type="text" placeholder="Interes" formControlName="i">
+                    <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="interest.errors && loginSubmitted">
+                        <ng-container [ngSwitch]="interest.value">
+                            <ng-container *ngSwitchCase="''">El interes es requerido!</ng-container>
+                            <ng-container *ngSwitchDefault>El interes debe tener almenos 10 caracteres!</ng-container>
+                        </ng-container>
+                    </small>
+                </div>
+            </ng-container>
+        <!------------------------>
             <div class="login-form-footer">
                 <div class="login-form-footer_links">
                     <a href="#">Acerca de</a>
