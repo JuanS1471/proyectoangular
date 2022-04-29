@@ -57,6 +57,12 @@ public nameUserLS = 'current user';
       })
     );
     }
+  logout(){
+    localStorage.removeItem(this.nameUserLS);
+    this.currentUser.next(null);
+    this.router.navigateByUrl(INTERNAL_ROUTES.AUTH_LOGIN);
+  }
+    
    
     private setUserToLS(user: IapiUserAuth){
       localStorage.setItem(this.nameUserLS. JSON.stringify(user));
