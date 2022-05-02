@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { title } from 'process';
 import { LEFT_NAV_MENUS } from 'src/app/data/constants/left-nav-menu.const';
 import { ILeftNavMenu } from 'src/app/data/interfaces';
+import { AuthService } from 'src/app/data/services/api/auth.service';
 
 @Component({
   selector: 'app-left-nav',
@@ -16,7 +18,23 @@ export class LeftNavComponent implements OnInit {
   public avatar = 'assets/images/defaults/avatar.jpg';
   public logo = 'assets/images/defaults/logo.png';
   public menus: ILeftNavMenu[] = LEFT_NAV_MENUS;
-  constructor() { }
+  public logoutMenu: ILeftNavMenu[];
+  constructor(
+    private authService: AuthService
+  ) {
+
+    this.logoutMenu=[
+      title:'',
+      links:[
+        {
+          icon: faTimes,
+          name:'Cerrar Sesion',
+          method: this.authService.logout();
+        }
+      ]
+    ]
+
+   }
 
   ngOnInit(): void {
   }
