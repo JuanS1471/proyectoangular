@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/data/services/api/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+  private authService: AuthService
   public loginForm;
     constructor( private FormBuilder: FormBuilder){
      
@@ -39,6 +40,10 @@ export class LoginComponent {
     }
   autenticate(){
     console.log('autenticated', this.loginForm.value);
+    this.authService.login(this.loginForm.value).subscribe( r => {
+      // solo cuando hay error
+      console.log(r);
+    })
   }
 
 }
