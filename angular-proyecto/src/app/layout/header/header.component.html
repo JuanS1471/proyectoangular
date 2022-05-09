@@ -9,6 +9,6 @@
  <div class="dsc-header__submenu">
     <fa-icon [icon]="faBell" class="dsc-header_submenu-icon" ></fa-icon>
     <fa-icon [icon]="faComment" class="dsc-header submenu-icon" ></fa-icon>
-     <div class="dsc-header_submenu-usr" [ngStyle] ="{'background-image': 'url(' + avatar + ')'}"></div>
+     <div class="dsc-header_submenu-usr" [ngStyle] ="{'background-image': 'url(' + avatar + ')'}" *ngIf="this.authService.getUser"></div>
  </div>
                            

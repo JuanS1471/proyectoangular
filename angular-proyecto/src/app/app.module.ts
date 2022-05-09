@@ -13,6 +13,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { HeaderNavComponent } from './layout/header-nav/header-nav.component';
 import { LeftNavComponent } from './layout/left-nav/left-nav.component';
 import { LeftNavMenuComponent } from './layout/left-nav/left-nav-menu/left-nav-menu.component';
+import { Page404Component } from './modules/server/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LeftNavMenuComponent } from './layout/left-nav/left-nav-menu/left-nav-m
     HeaderComponent,
     HeaderNavComponent,
     LeftNavComponent,
-    LeftNavMenuComponent
+    LeftNavMenuComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
