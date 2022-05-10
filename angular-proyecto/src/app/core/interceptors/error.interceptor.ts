@@ -2,6 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/c
 import { catchError, Observable, throwError } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { API_ROUTES } from "src/app/data/constants/routes";
 
 @Injectable()
 
@@ -12,7 +13,8 @@ export class errorInterceptor implements HttpInterceptor{
             catchError((err)=>{
                 console.log(err);
                 if(
-                    [401, 403, 404].indexOf(err.status) !== -1
+                    [401, 403, 404].indexOf(err.status) !== -1 &&
+                    req.url !== API_ROUTES.AUTH.LOGIN
                 ){
                    this.router.navigateByUrl('/' + err.status); 
                 }
