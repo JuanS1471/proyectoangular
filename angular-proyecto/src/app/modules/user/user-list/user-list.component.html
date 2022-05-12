@@ -1,71 +1,13 @@
-<div class="row">
-    <div class="col-12">
-        <h1>Pipes</h1>
-        <p>JSON: {{obj | json}}</p>
-        <p>TEXT: {{stringvar | titlecase}}</p>
-        <p>Fecha: {{dateVar | date}}</p>
-        <p>Fecha medium: {{dateVar | date:'medium'}}</p>
-        <p>Fecha full: {{dateVar | date:'full'}}</p>
-        <p>Fecha shortTime: {{dateVar | date:'shortTime'}}</p>
-        <p>Fecha mm:ss : {{dateVar | date:'mm:ss'}}</p>
-        <p>Fecha fullTime: {{dateVar | date:'fullTime'}}</p>
-        <p>Currency: {{currencyVar | currency}}</p>
-        <p>Decimal: {{decimalVar | number:''}}</p>
-        <p>Porcentaje: {{decimalVar | percent}}</p>
-        <p>Custom Pipe: {{user.name | greeting:user.gender }}</p>
-        <app-title-h1 [text]="title"></app-title-h1>
-        <app-title-h1 [text]="title" [pricePesos]="pricePesos"></app-title-h1>
-        <button class="btn btn-primary" (click)="addAmount()">Agregar 10 pesos</button>
-    </div>
-
-
-    <!-- <ng-container *ngIf="users; else elseUsersLoader;">
-        <app-card-user [data]="user" *ngFor="let user of users;" class="col-12 col-md-6 col-xl-3"></app-card-user>
-    </ng-container> -->
-
-
-    <!-- <ng-container *ngIf="users; else elseusersloader;">
-        <app-card-user [data]="user" *ngFor="let user of users;trackBy: trackByUserId" class="col-12 col-md-6 col-xl-3">
-        </app-card-user>
-    </ng-container>
-    <div class="col-12">
-        <button class="btn btn-primary mt-3 ml-3" (click)="newUser ()">Agregar usuario</button>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <h1>Lista de tareas</h1>
-        </div>
-        <div class="col-12" *ngFor="let task of tasks;index as i;:">
-            <h2>tarea #</h2>
-        </div>
-    </div> -->
-    <!----------------------
-    How to use index
-------------------------->
-    <!-- <div class-"row">
-<div class="col-12">
-    <hi>Lista de tareas</h1>
-</div>
-<div class-"col-12" *ngFor-"let task of tasks;index as i;">
-    <h2>Tarea #{{i + 1}} - {{task.title}} </h2>
-</div>
-</div> -->
- <!-- <div class="row">
-        <div class-"col-12">
-            <hi>Opciones de dias</hi>
-        </div>
-        <div class-"col-12" *ngFor-"1let option of options;first as isfirst; last as islast;">
-            <h2>{{option}} {{isFirst || islast ? 'día': 'dias'}}</h2>
-        </div>
-</div> -->
-<!--
-Init loader of card user
-    <-------------------------------------------
-        Init loader of card user
-    ---------------------------------------------->
-<!-- <ng-template #elseUsersLoader>
-    <app-card-loader class="col-12 col-md-6 col-xl-3" [bars]="4" [barHeight]="7" *ngFor="let i of [0,1,2,3,4,5,6]">
-    </app-card-loader>
-</ng-template>
-
-</div> -->
+<app-solid-button 
+[title]="'Exito'"
+[type]="$btntypes.SUCCESS"
+></app-solid-button>
+<app-solid-button 
+[title]="'Peligro'"
+[type]="$btntypes.DANGER"
+></app-solid-button>
+<app-solid-button 
+[title]="'Guardar'"
+[type]="$btntypes.PRIMARY"
+[url]="'/panel/user/1'"
+></app-solid-button>
