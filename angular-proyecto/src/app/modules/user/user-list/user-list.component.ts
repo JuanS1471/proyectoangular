@@ -14,4 +14,7 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
 })
 export class UserListComponent{
   public $btntypes = SOLID_BUTTON_TYPE_ENUM
+  actions(events: SOLID_BUTTON_TYPE_ENUM){
+    console.log(events)
+  }
 }
