@@ -2,15 +2,8 @@
 [title]="'Exito'"
 [type]="$btntypes.SUCCESS"
 (action)="actions($event)"
+#mainbutton
 ></app-solid-button>
-<app-solid-button 
-[title]="'Peligro'"
-[type]="$btntypes.DANGER"
-(action)="actions($event)"
-></app-solid-button>
-<app-solid-button 
-[title]="'Guardar'"
-(action)="actions($event)"
-[type]="$btntypes.PRIMARY"
-[url]="'/panel/user/1'"
-></app-solid-button>
+<div #container>
+    Hola es un container
+</div>

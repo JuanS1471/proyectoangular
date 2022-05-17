@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ICardUser } from 'src/app/shared/components/cards/icard-user.metadata';
 import { USERS_DATA } from 'src/app/data/constants/users.const';
 import { CAROUSEL_DATA_ITEMS } from 'src/app/data/constants/carousel.const';
@@ -7,14 +7,20 @@ import { UserService } from 'src/app/data/services/user.service';
 import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { Subscription } from 'rxjs';
 import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-button.type.enum';
+import { SolidButtonComponent } from 'src/app/shared/components';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent{
+  @ViewChild('mainbutton', null) mainbutton: SolidButtonComponent;
+  @ViewChild('container', null) container: ElementRef;
   public $btntypes = SOLID_BUTTON_TYPE_ENUM
   actions(events: SOLID_BUTTON_TYPE_ENUM){
-    console.log(events)
+    // Send http request
+    // console.log(events)
+    this.mainbutton.title = 'actualizar';
+    this.container.nativeElement.style.display = 'none';
   }
 }
