@@ -1,9 +1,11 @@
+<app-title-h1
+[text]="'Nuevo Usuario'" #mainTitle>
+
+</app-title-h1>
 <app-solid-button 
 [title]="'Exito'"
 [type]="$btntypes.SUCCESS"
-(action)="actions($event)"
-#mainbutton
+(action)="mainTitle.text = 'Actualizar';
+          mainButton.title = 'actualizar'"
+#mainButton
 ></app-solid-button>
-<div #container>
-    Hola es un container
-</div>
