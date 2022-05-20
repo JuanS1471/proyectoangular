@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-ft-tbody, [app-ft-tbody]',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ft-tbody.component.css']
 })
 export class FtTbodyComponent implements OnInit {
+
+  @Input() data: Array<Array<string>> = []
 
   constructor() { }
 
