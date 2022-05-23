@@ -1,5 +1,11 @@
-<table>
-   <app-ft-thead [data]="data.head"></app-ft-thead>
-   <app-ft-tbody [data]="data.body"></app-ft-tbody>
+<table class="full-table">
+   <thead app-ft-thead>
+      <ng-content select="[recordsHead]">
+      </ng-content>
+   </thead>
+   <tbody app-ft-tbody>
+      <ng-content select="[recordsBody]">
+      </ng-content>
+   </tbody>
    <tfoot></tfoot>
 </table>

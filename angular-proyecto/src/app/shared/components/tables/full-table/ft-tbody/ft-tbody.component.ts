@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class FtTbodyComponent implements OnInit {
 
-  @Input() data: Array<Array<string>> = []
+  // @Input() data: Array<Array<string>> = []
 
   constructor() { }
 

@@ -6,10 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./ft-thead.component.css']
 })
 export class FtTheadComponent implements OnInit {
-
-  @Input() data: Array<string> = []
-
-  constructor() { }
+constructor() { }
 
   ngOnInit(): void {
   }

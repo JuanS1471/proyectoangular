@@ -2,3 +2,13 @@ table{
     width: 100%;
     border-collapse: collapse;
 }
+::ng-deep{
+    table.full-table{
+        tr{
+            border-bottom: 1px solid black;
+            th,td{
+                padding: 16px;
+            }
+        } 
+    }
+}

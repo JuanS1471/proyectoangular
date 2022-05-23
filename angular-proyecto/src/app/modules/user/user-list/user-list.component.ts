@@ -6,7 +6,13 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent{
-  public $btntypes = SOLID_BUTTON_TYPE_ENUM
+  public $btntypes = SOLID_BUTTON_TYPE_ENUM;
+  public users: Array<{name: string, lastname: string, age:number, position: string}> = [{
+    name: 'jose',
+    lastname: 'perez',
+    age: 30,
+    position: 'obrador'
+  }]
   public data ={
     head:['nombre','apellido','edad','puesto'],
     body:[

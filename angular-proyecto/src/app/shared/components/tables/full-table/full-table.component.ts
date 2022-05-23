@@ -6,9 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./full-table.component.css']
 })
 export class FullTableComponent implements OnInit {
-  @Input() data: {head: Array<string>, body: Array<Array<string>>} = {head: [], body: []};
-
-
   constructor() { }
 
   ngOnInit(): void {
