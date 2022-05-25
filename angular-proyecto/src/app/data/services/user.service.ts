@@ -3,6 +3,7 @@ import { ApiClass } from '../../data/schema/ApiClass.class';
 import { Observable } from 'rxjs';
 import { ICardUser } from '../../shared/components/cards/icard-user.metadata';
 import {catchError, map} from 'rxjs/operators';
+import { IapiUser } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +26,11 @@ export class UserService extends ApiClass {
   }
   getAllUsers(): Observable<{
     error: boolean,
-    msg: string;
-    data: ICardUser[]
+    msg: string,
+    data: IapiUser[]
   }> {
     const response = {error: false, msg: '', data: null};
-    return this.http.get<ICardUser[]>(this.url + 'users')
+    return this.http.get<IapiUser[]>(this.url + 'users')
     .pipe(
       map( r => {
         response.data = r;

@@ -2,14 +2,14 @@
 [text]="'Nuevo Usuario'" #mainTitle>
 </app-title-h1>
 <div>
-    <app-full-table>
+    <app-full-table [service]="serviceTable">
         <tr recordsHead>
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Edad</th>
             <th>Trabajo</th>
         </tr>
-        <tr recordsBody *ngFor="let user of users">
+        <tr recordsBody *ngFor="let user of serviceTable.getCurrentItems">
                 <td>{{user.name}}</td>
                 <td>{{user.lastname}}</td>
                 <td>{{user.age}}</td>

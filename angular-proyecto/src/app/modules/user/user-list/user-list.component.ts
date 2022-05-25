@@ -1,4 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { TblUserService } from 'src/app/data/services/pages/user/tbl-user.service';
+import { UserService } from 'src/app/data/services/user.service';
 import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-button.type.enum';
 @Component({
   selector: 'app-user-list',
@@ -6,24 +8,13 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent{
-  public $btntypes = SOLID_BUTTON_TYPE_ENUM;
-  public users: Array<{name: string, lastname: string, age:number, position: string}> = [{
-    name: 'jose',
-    lastname: 'perez',
-    age: 30,
-    position: 'obrador'
-  }]
-  public data ={
-    head:['nombre','apellido','edad','puesto'],
-    body:[
-      ['IVAN','Larios',24,'gerente'],
-      ['IVAN','Larios',24,'gerente'],
-      ['IVAN','Larios',24,'gerente'],
-      ['IVAN','Larios',24,'gerente'],
-      ['IVAN','Larios',24,'gerente']
-    ]
+  public $btntypes = SOLID_BUTTON_TYPE_ENUM; 
+  constructor(public serviceTable: TblUserService){
+
   }
+
   actions(events: SOLID_BUTTON_TYPE_ENUM){
    
   }
-}
+
+  }
