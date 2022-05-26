@@ -19,4 +19,8 @@ export class FullTableService {
     getData(){
       this.service.getData();
     }
+
+    get getMessageFooter(): string{
+      return this.service.getCurrentItems.length <= 0 ? 'No hay registros' : `${this.service.getCurrentItems.length} registros`
+    }
 }

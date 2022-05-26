@@ -8,7 +8,7 @@ import { FullTableService } from './Services/full-table.service';
   styleUrls: ['./full-table.component.css']
 })
 export class FullTableComponent implements OnInit {
-  @Input service: IFullTable;
+  @Input() service: IFullTable;
   public tableService: FullTableService;
   constructor() { }
 
