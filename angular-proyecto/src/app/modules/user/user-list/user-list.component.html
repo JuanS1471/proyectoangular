@@ -10,7 +10,7 @@
             <th>Trabajo</th>
         </tr>
         <tr recordsBody *ngFor="let user of serviceTable.getCurrentItems">
-                <td>{{user.name}}</td>
+                <td [routerLink]="'/panel/user/'+user.id">{{user.name}}</td>
                 <td>{{user.lastname}}</td>
                 <td>{{user.age}}</td>
                 <td>{{user.position}}</td>

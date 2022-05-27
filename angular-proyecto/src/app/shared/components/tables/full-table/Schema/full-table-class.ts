@@ -6,7 +6,7 @@ export class FullTableClass implements IFullTable {
          data: [],
           total: 0 
         };
-    public subjectTable: BehaviorSubject<{ data: any[]; total: number; }>;
+    public subjectTable!: BehaviorSubject<{ data: any[]; total: number; }>;
     getData(): void {}
     
     get getCurrentItems(): any[]{

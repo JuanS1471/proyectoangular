@@ -5,7 +5,8 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrls: ['./user-list.component.scss'],
+  providers: [TblUserService]
 })
 export class UserListComponent{
   public $btntypes = SOLID_BUTTON_TYPE_ENUM; 

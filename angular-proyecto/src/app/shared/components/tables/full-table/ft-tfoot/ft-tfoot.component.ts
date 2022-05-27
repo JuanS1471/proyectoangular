@@ -7,6 +7,6 @@ import { FullTableService } from '../Services/full-table.service';
   styleUrls: ['./ft-tfoot.component.css']
 })
 export class FtTfootComponent {
-  @Input() tableService: FullTableService;
+  @Input() tableService: FullTableService | undefined;
 
 }
