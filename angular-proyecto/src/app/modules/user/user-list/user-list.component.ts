@@ -8,10 +8,14 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
   styleUrls: ['./user-list.component.scss'],
   providers: [TblUserService]
 })
-export class UserListComponent{
+export class UserListComponent implements OnInit{
   public $btntypes = SOLID_BUTTON_TYPE_ENUM; 
   constructor(public serviceTable: TblUserService){
 
+  }
+
+  ngOnInit(){
+      this.serviceTable.getData();
   }
 
   actions(events: SOLID_BUTTON_TYPE_ENUM){

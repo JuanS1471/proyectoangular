@@ -1,7 +1,12 @@
 <app-title-h1
 [text]="'Nuevo Usuario'" #mainTitle>
 </app-title-h1>
-<div>
+<app-row>
+    <ng-container *ngFor="let u of serviceTable.getCurrentItems">
+        <app-card-user [data]="u"></app-card-user>
+    </ng-container>
+</app-row>
+<!-- <div>
     <app-full-table [service]="serviceTable">
         <tr recordsHead>
             <th>Nombre</th>
@@ -22,4 +27,4 @@
 [type]="$btntypes.SUCCESS"
 (action)=" t.tableService.getData()"
 #mainButton
-></app-solid-button>
+></app-solid-button> -->
