@@ -6,6 +6,7 @@ import { FtTheadComponent } from './tables/full-table/ft-thead/ft-thead.componen
 import { FullTableComponent } from './tables/full-table/full-table.component';
 import { TitleH1Component } from './title-h1/title-h1.component';
 import { RowComponent } from './columns/row/row.component';
+import { ColComponent } from './columns/col/col.component';
 
 export const components: any[] = [
     CardUserComponent,
@@ -15,7 +16,8 @@ export const components: any[] = [
     FtTheadComponent,
     FtTbodyComponent,
     FtTfootComponent,
-    RowComponent
+    RowComponent,
+    ColComponent
 ];
 
 // export all components
@@ -26,4 +28,5 @@ export * from './tables/full-table/ft-tbody/ft-tbody.component';
 export * from './tables/full-table/ft-tfoot/ft-tfoot.component';
 export * from './tables/full-table/ft-thead/ft-thead.component';
 export * from './tables/full-table/full-table.component';
-export * from './columns/row/row.component'
+export * from './columns/row/row.component';
+export * from './columns/col/col.component';

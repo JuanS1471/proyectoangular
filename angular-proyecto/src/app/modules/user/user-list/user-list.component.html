@@ -3,28 +3,8 @@
 </app-title-h1>
 <app-row>
     <ng-container *ngFor="let u of serviceTable.getCurrentItems">
-        <app-card-user [data]="u"></app-card-user>
+        <app-col [sizes]="{xs: 12, md: 6}" [classes]="'test'">
+            <app-card-user [data]="u"></app-card-user>
+        </app-col>
     </ng-container>
 </app-row>
-<!-- <div>
-    <app-full-table [service]="serviceTable">
-        <tr recordsHead>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Edad</th>
-            <th>Trabajo</th>
-        </tr>
-        <tr recordsBody *ngFor="let user of serviceTable.getCurrentItems">
-                <td [routerLink]="'/panel/user/'+user.id">{{user.name}}</td>
-                <td>{{user.lastname}}</td>
-                <td>{{user.age}}</td>
-                <td>{{user.position}}</td>
-        </tr>
-    </app-full-table>
-</div>
-<app-solid-button 
-[title]="'Exito'"
-[type]="$btntypes.SUCCESS"
-(action)=" t.tableService.getData()"
-#mainButton
-></app-solid-button> -->
