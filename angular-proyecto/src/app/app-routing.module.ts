@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { INTERNAL_PATHS } from './data/constants/routes';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
+import { Page401Component } from './modules/server/page401/page401.component';
 import { Page404Component } from './modules/server/page404/page404.component';
 
 
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: INTERNAL_PATHS.SERVER_E_404,
     component: Page404Component
+  },
+  {
+    path: INTERNAL_PATHS.SERVER_E_401,
+    component: Page401Component
   },
   {
     path: 'panel',

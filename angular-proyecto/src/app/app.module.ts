@@ -14,6 +14,7 @@ import { HeaderNavComponent } from './layout/header-nav/header-nav.component';
 import { LeftNavComponent } from './layout/left-nav/left-nav.component';
 import { LeftNavMenuComponent } from './layout/left-nav/left-nav-menu/left-nav-menu.component';
 import { Page404Component } from './modules/server/page404/page404.component';
+import { Page401Component } from './modules/server/page401/page401.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { Page404Component } from './modules/server/page404/page404.component';
     HeaderNavComponent,
     LeftNavComponent,
     LeftNavMenuComponent,
-    Page404Component
+    Page404Component,
+    Page401Component
   ],
   imports: [
     BrowserModule,

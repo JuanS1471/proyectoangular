@@ -6,6 +6,7 @@ import { API_ROUTES, INTERNAL_ROUTES } from '@data/constants/routes';
 import { IApiUserAuthenticated } from '@data/interfaces';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { PERMISSIONS_ENUM } from '../../enum';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class AuthService {
 
   get getUser(): IApiUserAuthenticated {
     return this.currentUser.value;
+  }
+
+  hasAccessToModule(p: PERMISSIONS_ENUM){
+    return this.getUser &&this.getUser.permissions[p] === 1;
   }
 
   login(

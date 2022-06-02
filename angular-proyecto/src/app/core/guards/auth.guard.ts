@@ -22,6 +22,10 @@ export class AuthGuard implements CanActivate {
  ):boolean {
      const currentUser = this.authService.currentUser;
      if(currentUser){
+       if(next.data.permission && this.authService.hasAccessToModule(next.data.permission)){
+        this.router.navigateByUrl(INTERNAL_ROUTES.SERVER_E_401); 
+        return false;
+       }
        return true;
      }
      this.router.navigate([INTERNAL_ROUTES.AUTH_LOGIN],{
