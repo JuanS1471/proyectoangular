@@ -1,3 +1,5 @@
+import { PERMISSIONS_ENUM, ROLES_ENUM } from "../../enum";
+
 export interface ILeftNavMenu {
     title: string;
     links:{
@@ -5,5 +7,6 @@ export interface ILeftNavMenu {
         name: string;
         link?: string;
         method?: () => any;
+        roles?: ROLES_ENUM[];
     }[];
 }

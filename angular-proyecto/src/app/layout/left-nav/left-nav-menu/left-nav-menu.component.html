@@ -2,12 +2,14 @@
     <h5 class="dsc-left-nav-menu__title">Mi cuenta</h5>
     <ul class="dsc-left-nav-menu__links">
         <ng-container *ngFor="let link of data.links">
-            <li
-            class="dsc-left-nav-menu_links-link" [routerLink]="link.link ? link.link : null" (click)="link.method ? link.method():null">
-            <fa-icon [icon] ="link.icon"
-            class="dsc-left-nav-brand_menu"></fa-icon>
-            <span>{{link.name}}</span>
-            </li>
+            <ng-container *ngIf="hasPermission(link.permission)">
+                <li
+                class="dsc-left-nav-menu_links-link" [routerLink]="link.link ? link.link : null" (click)="link.method ? link.method():null">
+                <fa-icon [icon] ="link.icon"
+                class="dsc-left-nav-brand_menu"></fa-icon>
+                <span>{{link.name}}</span>
+                </li>
+            </ng-container>
         </ng-container>
     </ul>
 </div>
