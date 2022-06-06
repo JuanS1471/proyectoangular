@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PERMISSIONS_ENUM, ROLES_ENUM } from 'src/app/data/enum';
+import { ROLES_ENUM } from 'src/app/data/enum';
 import { ILeftNavMenu } from 'src/app/data/interfaces';
 import { AuthService } from 'src/app/data/services/api/auth.service';
 
