@@ -1,10 +1,11 @@
 <app-title-h1
-[text]="'Nuevo Usuario'" #mainTitle>
+[text]="'title'" #mainTitle #titl>
 </app-title-h1>
 <app-row>
-    <ng-container *ngFor="let u of serviceTable.getCurrentItems">
-        <app-col [sizes]="{xs: 12, md: 6}" [classes]="'test'">
-            <app-card-user [data]="u"></app-card-user>
-        </app-col>
-    </ng-container>
+    <app-solid-button [title]="'Cambiar'" (action)="titl.text = 'titulo por Id'">
+
+    </app-solid-button>
 </app-row>
+<app-modal [title]="'title'">
+
+</app-modal>

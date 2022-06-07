@@ -7,6 +7,7 @@ import { FullTableComponent } from './tables/full-table/full-table.component';
 import { TitleH1Component } from './title-h1/title-h1.component';
 import { RowComponent } from './columns/row/row.component';
 import { ColComponent } from './columns/col/col.component';
+import { MmodalComponent } from './modal/mmodal/mmodal.component';
 
 export const components: any[] = [
     CardUserComponent,
@@ -17,7 +18,8 @@ export const components: any[] = [
     FtTbodyComponent,
     FtTfootComponent,
     RowComponent,
-    ColComponent
+    ColComponent,
+    MmodalComponent
 ];
 
 // export all components
@@ -30,3 +32,4 @@ export * from './tables/full-table/ft-thead/ft-thead.component';
 export * from './tables/full-table/full-table.component';
 export * from './columns/row/row.component';
 export * from './columns/col/col.component';
+export * from './modal/mmodal/mmodal.component';

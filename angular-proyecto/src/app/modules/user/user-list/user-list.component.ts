@@ -10,6 +10,7 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
 })
 export class UserListComponent implements OnInit{
   public $btntypes = SOLID_BUTTON_TYPE_ENUM; 
+  public title = 'Lista de usuarios'
   constructor(public serviceTable: TblUserService){
 
   }
