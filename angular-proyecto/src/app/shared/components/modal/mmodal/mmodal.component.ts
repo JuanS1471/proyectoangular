@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mmodal',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mmodal.component.css']
 })
 export class MmodalComponent implements OnInit {
+
+  @Input() title !: string;
 
   constructor() { }
 

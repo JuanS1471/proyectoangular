@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { TblUserService } from 'src/app/data/services/pages/user/tbl-user.service';
 import { UserService } from 'src/app/data/services/user.service';
 import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-button.type.enum';
@@ -8,11 +8,14 @@ import { SOLID_BUTTON_TYPE_ENUM } from 'src/app/shared/components/buttons/solid-
   styleUrls: ['./user-list.component.scss'],
   providers: [TblUserService]
 })
-export class UserListComponent implements OnInit{
+export class UserListComponent implements OnInit, OnDestroy{
   public $btntypes = SOLID_BUTTON_TYPE_ENUM; 
   public title = 'Lista de usuarios'
   constructor(public serviceTable: TblUserService){
 
+  }
+  ngOnDestroy(){
+    this.serviceTable.clearService()
   }
 
   ngOnInit(){
@@ -22,5 +25,5 @@ export class UserListComponent implements OnInit{
   actions(events: SOLID_BUTTON_TYPE_ENUM){
    
   }
-
+  
   }

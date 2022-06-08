@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IapiUser } from 'src/app/data/interfaces';
+import { MmodalComponent } from 'src/app/shared/components';
 import { FullTableClass } from 'src/app/shared/components/tables/full-table/Schema/full-table-class';
 import { UserService } from '../../user.service';
 
@@ -9,6 +10,7 @@ import { UserService } from '../../user.service';
 })
 export class TblUserService extends FullTableClass{
 
+  public titleModal = 'Modal';
   constructor(
     private userService: UserService
   ) { 
@@ -19,13 +21,21 @@ export class TblUserService extends FullTableClass{
     }>(this.initialData);
   }
 
-  getData(): void{
+  override getData(): void{
     this.userService.getAllUsers().subscribe(r => {
       this.subjectTable.next((data: r.data, total: r.data.length));
     });
   }
 
-  get getCurrentItems(): IapiUser[] {
+  override get getCurrentItems(): IapiUser[] {
       return this.subjectTable.value.data;
+  }
+
+  changeTitleModal(m: MmodalComponent){
+    m.showModal();
+    this.titleModal = 'nuevo titulo'
+  }
+  clearService(){
+    this.subjectTable.next(this.initialData);
   }
 }

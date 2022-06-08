@@ -2,10 +2,28 @@
 [text]="'title'" #mainTitle #titl>
 </app-title-h1>
 <app-row>
-    <app-solid-button [title]="'Cambiar'" (action)="titl.text = 'titulo por Id'">
-
+    {{titl.text}} {{title}}
+    <app-solid-button [title]="'Cambiar'" (action)="serviceTable.changeTitleModal(idModal): idModal.showModal">
     </app-solid-button>
 </app-row>
-<app-modal [title]="'title'">
+<app-mmodal [title]="serviceTable.titleModal" #idModal>
+ <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Maecenas congue metus mauris, et pulvinar dui tristique 
+vitae. Nulla mattis ipsum lacus, eu dapibus mi lobortis a.
+Nam nec dapibus nulla. Nam eleifend euismod nisi, 
+sit amet auctor elit tristique et. Phasellus 
+luctus ut orci sit amet hendrerit. Nulla arcu nisi, 
+rutrum ut volutpat id, tincidunt hendrerit lorem. 
+Nam id nisi scelerisque, lacinia lorem eget, vulputate 
+eros. Pellentesque pulvinar nisl posuere est efficitur, 
+sit amet finibus tellus commodo. Donec placerat ornare 
+lobortis. Donec ultricies risus nec massa fringilla 
+pulvinar. Quisque at vehicula elit. Sed et finibus elit. 
+Pellentesque facilisis faucibus dapibus. Nulla pretium 
+lobortis dui vel rutrum. Nulla lacinia, elit eget auctor 
+elementum, arcu augue varius risus, vel tincidunt enim nisl
+at libero. Vestibulum luctus massa tristique nisi volutpat, 
+ac condimentum neque efficitur.</p>   
+</app-mmodal>
+    
 
-</app-modal>
