@@ -15,7 +15,7 @@ export class ColComponent implements OnInit {
     this.class = this.getSize(this.sizes);
   }
 
-  getSize(sizes:Iclm): string{
+  getSize(sizes:any): string{
     let fclass = this.classes;
     for(const k in sizes){
       if(Object.prototype.hasOwnProperty.call(sizes,k)){

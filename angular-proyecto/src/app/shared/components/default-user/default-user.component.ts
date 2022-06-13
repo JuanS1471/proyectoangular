@@ -56,7 +56,7 @@ export class DefaultUserComponent implements OnInit {
      isPrimary: boolean;
      isDisabled: boolean;
    }) {
-     card.isPrimary !card.isPrimary;
+     card.isPrimary !;card.isPrimary;
    }
    disabledCard(card: {
     title: string;

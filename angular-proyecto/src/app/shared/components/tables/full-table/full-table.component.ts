@@ -8,8 +8,8 @@ import { FullTableService } from './Services/full-table.service';
   styleUrls: ['./full-table.component.css']
 })
 export class FullTableComponent implements OnInit {
-  @Input() service: IFullTable;
-  public tableService: FullTableService;
+  @Input() service !: IFullTable;
+  public tableService !: FullTableService;
   constructor() { }
 
   ngOnInit(): void {
