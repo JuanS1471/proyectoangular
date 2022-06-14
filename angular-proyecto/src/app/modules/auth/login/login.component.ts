@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/data/services/api/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  private authService: AuthService
+  private authService !: AuthService
   public loginForm;
     constructor( private FormBuilder: FormBuilder){
      
@@ -25,7 +25,7 @@ export class LoginComponent {
       })
     }
     get fp(){
-      return this.loginForm.controls.person.controls;
+      return this.loginForm.controls['person'].value
     }
 
     get int(){

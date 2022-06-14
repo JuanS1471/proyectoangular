@@ -26,8 +26,8 @@ export class UserService extends ApiClass {
   }
   getAllUsers(): Observable<{
     error: boolean,
-    msg: string,
-    data: IapiUser[]
+    msg !: string,
+    data : IapiUser[] = []
   }> {
     const response = {error: false, msg: '', data: null};
     return this.http.get<IapiUser[]>(this.url + 'users')

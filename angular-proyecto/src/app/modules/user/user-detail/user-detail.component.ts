@@ -14,11 +14,13 @@ export class UserDetailComponent {
   public id: number;
   public currentUser !: ICardUser;
   public $btntypes = SOLID_BUTTON_TYPE_ENUM; 
+  public title: string;
   constructor(
     private route: ActivatedRoute,
     private userService: UserService
   ) {
-    this.id = +this.route.snapshot.params['id'];
+    this.id = +this.route.snapshot.params.id;
+    this.title = userService.getTitle;
   }
 
   ngOnInit() {

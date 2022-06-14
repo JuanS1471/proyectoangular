@@ -6,6 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./mmodal.component.css']
 })
 export class MmodalComponent implements OnInit {
+  showModal() {
+    throw new Error('Method not implemented.');
+  }
 
   @Input() title !: string;
 
