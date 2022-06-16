@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { ApiClass } from '../../data/schema/ApiClass.class';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ICardUser } from '../../shared/components/cards/icard-user.metadata';
 import {catchError, map} from 'rxjs/operators';
 import { IapiUser } from '../interfaces';
+import { Router } from '@angular/router';
+import { API_ROUTES } from '../constants/routes';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService extends ApiClass {
   public testVariable = '';
-  /**
-   * Get all user from api
-   */
+  public currentUser !: BehaviorSubject<IApiUserAuthenticated>;
+  public nameUserLS = 'currentUserDesignicode';
+
+
   getTitle(): string{
     return this.testVariable;
   }
@@ -24,7 +27,7 @@ export class UserService extends ApiClass {
   clearTitle(){
     this.testVariable = 'nuevo titulo'
   }
-  getAllUsers(): Observable<{
+ getAllUsers(): Observable<{
     error: boolean,
     msg !: string,
     data : IapiUser[] = []
@@ -45,24 +48,37 @@ export class UserService extends ApiClass {
     );
   }
 
-  /**
-   * Get one user by id
-   * @param id number
-   */
-  getUserById(id: number): Observable<{
-    error: boolean,
-    msg: string,
-    data: ICardUser
+ 
+  function login(this: any, 
+    data: {
+      email: string;
+      password: string;
+    }
+  ): Observable <{
+      error: boolean;
+      msg: string;
+      data: any
   }> {
-    const response = {error: false, msg: '', data: null};
-    return this.http.get<ICardUser>(this.url + 'users/' + id)
+    const response = { error: true, msg: ERRORS_CONST.LOGIN.ERROR, data: null};
+    return this.http.post<{error: boolean, msg: string, data: any}>(API_ROUTES.AUTH.LOGIN, data)
       .pipe(
-        map( r => {
-            response.data = r;
-            return response;
+        map(r => {
+          response.msg = r.msg;
+          response.error = r.error;
+          response.data = r.data;
+          this.setUserToLocalStorage(r.data);
+          this.currentUser.next(r.data);
+          if (!response.error) {
+            this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_USER_LIST);
           }
-        ),
-        catchError(this.error)
+          return response;
+        }),
+        catchError( e => {
+          return of(response);
+        })
       );
   }
+
 }
+
+
