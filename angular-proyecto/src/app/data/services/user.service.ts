@@ -3,7 +3,7 @@ import { ApiClass } from '../../data/schema/ApiClass.class';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ICardUser } from '../../shared/components/cards/icard-user.metadata';
 import {catchError, map} from 'rxjs/operators';
-import { IapiUser } from '../interfaces';
+import { IapiUser, IapiUserAuth } from '../interfaces';
 import { Router } from '@angular/router';
 import { API_ROUTES } from '../constants/routes';
 
@@ -12,7 +12,7 @@ import { API_ROUTES } from '../constants/routes';
 })
 export class UserService extends ApiClass {
   public testVariable = '';
-  public currentUser !: BehaviorSubject<IApiUserAuthenticated>;
+  public currentUser !: BehaviorSubject<IapiUserAuth>;
   public nameUserLS = 'currentUserDesignicode';
 
 

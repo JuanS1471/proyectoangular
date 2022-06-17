@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ERRORS_CONST } from '@data/constants';
 import { API_ROUTES, INTERNAL_ROUTES } from '@data/constants/routes';
-import { IApiUserAuthenticated } from '@data/interfaces';
+import { IapiUserAuth } from '../../interfaces';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { PERMISSIONS_ENUM, ROLES_ENUM } from '../../enum';
@@ -13,7 +13,7 @@ import { PERMISSIONS_ENUM, ROLES_ENUM } from '../../enum';
 })
 export class AuthService {
 
-  public currentUser: BehaviorSubject<IApiUserAuthenticated>;
+  public currentUser: BehaviorSubject<IapiUserAuth>;
   public nameUserLS = 'currentUserDesignicode';
 
   constructor(
@@ -25,7 +25,7 @@ export class AuthService {
     );
   }
 
-  get getUser(): IApiUserAuthenticated {
+  get getUser(): IapiUserAuth {
     return this.currentUser.value;
   }
 
@@ -70,7 +70,7 @@ export class AuthService {
   }
 
 
-  private setUserToLocalStorage( user: IApiUserAuthenticated) {
+  private setUserToLocalStorage( user: IapiUserAuth) {
     localStorage.setItem(this.nameUserLS, JSON.stringify(user));
   }
 }
