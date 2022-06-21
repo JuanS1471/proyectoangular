@@ -1,9 +1,5 @@
 <div class="dsc-left-nav-brand">
-    <fa-icon
-        [icon]="faBars"
-        class="dsc-left-nav-brand__menu"
-        (click)="showMenu.emit()"
-    ></fa-icon>
+    
     <div class="dsc-left-nav-brand__logo">
         <img src="{{ logo }}" alt="designicode-logo" />
         <span>etflix</span>
@@ -12,9 +8,6 @@
 <div class="dsc-left-nav-usr" *ngIf="this.authService.getUser">
     <div
         class="dsc-left-nav-usr__avatar"
-        [ngStyle]="{
-            'background-image': 'url(' + this.authService.getUser.avatar + ')'
-        }"
     ></div>
     <h4 class="dsc-left-nav-usr__name">
         {{ this.authService.getUser.fullname }}
@@ -24,6 +17,4 @@
     </h6>
 </div>
 <ng-container *ngFor="let menu of menus">
-    <app-left-nav-menu [data]="menu"></app-left-nav-menu>
 </ng-container>
-<app-left-nav-menu [data]="logoutMenu"></app-left-nav-menu>

@@ -29,7 +29,7 @@ export class UserService extends ApiClass {
   }
  getAllUsers(): Observable<{
     error: boolean,
-    msg !: string,
+    msg : string,
     data : IapiUser[] = []
   }> {
     const response = {error: false, msg: '', data: null};
@@ -81,4 +81,8 @@ export class UserService extends ApiClass {
 
 }
 
+
+function If(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}
 
