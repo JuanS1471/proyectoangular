@@ -4,14 +4,14 @@
     </div>
     <div class="col-12">
          <div class="d-flex flex-wrap justify-content-center justify-content-md-start">
-             <ng-container *ngFor="let card of cards;">
+             <ng-container *ngFor="let card of cards">
                  <div
-                      [ngClass]="{
-                           'dsc-card': true,
-                           'dsc-card-primary': card.isPrimary,
-                           'dsc-card-secondary': !card.isPrimary,
-                           'dsc-card-disabled': card.isDisabled
-                     }">
+                    ngClass="{
+                        'dsc-card': true,
+                        'dsc-card-primary': card.isPrimary,
+                        'dsc-card-secondary': !card.isPrimary,
+                        'dsc-card-disabled': card.isDisabled
+                  }" >
                       <div class="dsc-card_title">
                            <h2>{{card.title}}</h2>
                       </div>

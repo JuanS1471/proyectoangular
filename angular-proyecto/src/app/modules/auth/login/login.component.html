@@ -19,7 +19,7 @@
                         <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
                             *ngIf="fp.name.errors && loginSubmitted"
                         >
-                        <ng-container [ngSwitch]="fp.name.value">
+                        <ng-container ngSwitch="fp.name.value">
                         <ng-container *ngSwitchCase="''">El nombre es requerido!</ng-container>
                         <ng-container *ngSwitchDefault>El nombre es invalido!</ng-container >
                         </ng-container >
@@ -31,7 +31,7 @@
                         <small class="bg-danger text-light mt-1 px-2 py-1 rounded"
                             *ngIf="fp.lastname.errors && loginSubmitted"
                         >
-                        <ng-container [ngSwitch]="fp.lastname.value">
+                        <ng-container ngSwitch="fp.lastname.value">
                         <ng-container *ngSwitchCase="''">El nombre es requerido!</ng-container>
                         <ng-container *ngSwitchDefault>El nombre es invalido!</ng-container >
                         </ng-container >
@@ -64,10 +64,10 @@
             </button>
             <ng-container *ngFor="let interest of interests; let i=index;">
                 <div class="login-form-input">
-                    <label>Interes*: <span (click)="delInt()">X</span></label>
+                    <label>Interes*: <span (click)="delInt(0)">X</span></label>
                     <input type="text" placeholder="Interes" formControlName="i">
                     <small class="bg-danger text-light mt-1 px-2 py-1 rounded" *ngIf="interest.errors && loginSubmitted">
-                        <ng-container [ngSwitch]="interest.value">
+                        <ng-container ngSwitch="interest.value">
                             <ng-container *ngSwitchCase="''">El interes es requerido!</ng-container>
                             <ng-container *ngSwitchDefault>El interes debe tener almenos 10 caracteres!</ng-container>
                         </ng-container>
