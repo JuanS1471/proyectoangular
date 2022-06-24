@@ -21,7 +21,7 @@ export class AuthService {
     private router: Router
   ) {
     this.currentUser = new BehaviorSubject(
-      JSON.parse(localStorage.getItem(this.nameUserLS))
+      JSON.parse(localStorage.getItem(this.nameUserLS?  this.nameUserLS : ""))
     );
   }
 

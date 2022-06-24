@@ -11,6 +11,9 @@ import { API_ROUTES } from '../constants/routes';
   providedIn: 'root'
 })
 export class UserService extends ApiClass {
+  getUserById(id: number) {
+    throw new Error('Method not implemented.');
+  }
   public testVariable = '';
   public currentUser !: BehaviorSubject<IapiUserAuth>;
   public nameUserLS = 'currentUserDesignicode';
