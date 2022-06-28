@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ERRORS_CONST } from '@data/constants';
-import { API_ROUTES, INTERNAL_ROUTES } from '@data/constants/routes';
+import { ERROS_VALIDATIONS } from '../../constants/errors/errors-validations.const copy';
+
 import { IapiUserAuth } from '../../interfaces';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { PERMISSIONS_ENUM, ROLES_ENUM } from '../../enum';
+import { API_ROUTES, INTERNAL_ROUTES } from '../../constants/routes';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AuthService {
     private router: Router
   ) {
     this.currentUser = new BehaviorSubject(
-      JSON.parse(localStorage.getItem(this.nameUserLS?  this.nameUserLS : ""))
+      JSON.parse(localStorage.getItem(this.nameUserLS) || '{}')
     );
   }
 
@@ -53,7 +54,7 @@ export class AuthService {
           this.setUserToLocalStorage(r.data);
           this.currentUser.next(r.data);
           if (!response.error) {
-            this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_USER_LIST);
+            this.router.navigateByUrl(INTERNAL_ROUTES.PANEL_USER);
           }
           return response;
         }),
@@ -65,7 +66,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem(this.nameUserLS);
-    this.currentUser.next(null);
+    this.currentUser.next(this.getUser);
     this.router.navigateByUrl(INTERNAL_ROUTES.AUTH_LOGIN);
   }
 

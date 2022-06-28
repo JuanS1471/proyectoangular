@@ -23,7 +23,7 @@ export class TblUserService extends FullTableClass{
 
   override getData(): void{
     this.userService.getAllUsers().subscribe(r => {
-      this.subjectTable.next((_data: r.data, _total: r.data.length));
+      this.subjectTable.next({data: r.data, total: r.data.length});
     });
   }
 
