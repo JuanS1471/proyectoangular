@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ApiClass } from '../../data/schema/ApiClass.class';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { ICardUser } from '../../shared/components/cards/icard-user.metadata';
 import {catchError, map} from 'rxjs/operators';
 import { IapiUser, IapiUserAuth } from '../interfaces';
 import { Router } from '@angular/router';
-import { API_ROUTES } from '../constants/routes';
+import { API_ROUTES, INTERNAL_ROUTES } from '../constants/routes';
+import { ERROS_VALIDATIONS } from '../constants/errors/errors-validations.const copy';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService extends ApiClass {
+  router: any;
   getUserById(id: number) {
     throw new Error('Method not implemented.');
   }
@@ -33,10 +35,10 @@ export class UserService extends ApiClass {
  getAllUsers(): Observable<{
     error: boolean,
     msg : string,
-    data : IapiUser[] = []
+    data : any
   }> {
-    const response = {error: false, msg: '', data: null};
-    return this.http.get<IapiUser[]>(this.url + 'users')
+    const response = { error: true, msg: 'No se ha podido otorgar el acceso', data: null};
+    return this.http.post<{error: boolean, msg: string, data: any}>(API_ROUTES.AUTH.LOGIN, data)
     .pipe(
       map( r => {
         response.data = r;
@@ -44,11 +46,15 @@ export class UserService extends ApiClass {
           If (i.gender === '' || i.gender === nul) {
             i.gender = 'No encontrado';
           }
-        });
         return response;
-      ]);
-      catchError(this.error)
+      }),
+      catchError( e => {
+        return of(response);
+      })
     );
+  }
+  setUserToLocalStorage(data: any) {
+    throw new Error('Method not implemented.');
   }
 
  
@@ -86,6 +92,10 @@ export class UserService extends ApiClass {
 
 
 function If(arg0: boolean) {
+  throw new Error('Function not implemented.');
+}
+
+function data<T>(LOGIN: string, data: any) {
   throw new Error('Function not implemented.');
 }
 
