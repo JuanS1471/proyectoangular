@@ -51,7 +51,7 @@ export class UserService extends ApiClass {
       catchError( e => {
         return of(response);
       })
-    );
+    }));
   }
   setUserToLocalStorage(data: any) {
     throw new Error('Method not implemented.');
@@ -69,7 +69,7 @@ export class UserService extends ApiClass {
       data: any
   }> {
     const response = { error: true, msg: ERRORS_CONST.LOGIN.ERROR, data: null};
-    return this.http.post<{error: boolean, msg: string, data: any}>(API_ROUTES.AUTH.LOGIN, data)
+    return this.http.post({error: true, msg: "Error", data: ""})
       .pipe(
         map(r => {
           response.msg = r.msg;
