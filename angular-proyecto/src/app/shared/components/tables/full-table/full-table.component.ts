@@ -13,7 +13,7 @@ export class FullTableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.tableService = new FullTableService(this.service);
+    this.tableService = new FullTableService();
     this.tableService.initData();
   }
 

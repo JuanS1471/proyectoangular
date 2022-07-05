@@ -5,22 +5,21 @@ import { IFullTable } from '../ifull-table.metadata';
   providedIn: 'root'
 })
 export class FullTableService {
-
+  servicio !: IFullTable
   constructor(
-    public service: IFullTable
   ) { }
 
     initData(){
-      if(this.service.getCurrentItems.length <= 0){
+      if(this.servicio.getCurrentItems.length <= 0){
         this.getData();
       }
     }
 
     getData(){
-      this.service.getData();
+      this.servicio.getData();
     }
 
     get getMessageFooter(): string{
-      return this.service.getCurrentItems.length <= 0 ? 'No hay registros' : `${this.service.getCurrentItems.length} registros`
+      return this.servicio.getCurrentItems.length <= 0 ? 'No hay registros' : `${this.servicio.getCurrentItems.length} registros`
     }
 }
