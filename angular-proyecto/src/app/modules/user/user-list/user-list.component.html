@@ -3,10 +3,10 @@
 </app-title-h1>
 <app-row>
     {{titl.text}} {{title}}
-    <app-solid-button [title]="'Cambiar'" (action)="serviceTable.changeTitleModal(idModal): idModal.showModal">
+    <app-solid-button [title]="'Cambiar'" (action)="serviceTable.changeTitleModal(idModal)">
     </app-solid-button>
 </app-row>
-<app-mmodal [title]="serviceTable.titleModal" #idModal>
+<app-mmodal [title]="this.serviceTable.titleModal? this.serviceTable.titleModal : 'Modal'" #idModal>
  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 Maecenas congue metus mauris, et pulvinar dui tristique 
 vitae. Nulla mattis ipsum lacus, eu dapibus mi lobortis a.
