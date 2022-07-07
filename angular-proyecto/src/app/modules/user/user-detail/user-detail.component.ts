@@ -19,8 +19,8 @@ export class UserDetailComponent {
     private route: ActivatedRoute,
     private userService: UserService
   ) {
-    this.id = +this.route.snapshot.params.id;
-    this.title = userService.getTitle;
+    this.id = +this.route.snapshot.params['id'];
+    this.title = userService.getTitle();
   }
 
   ngOnInit() {
