@@ -24,11 +24,7 @@ export class UserDetailComponent {
   }
 
   ngOnInit() {
-     this.userService.getUserById(this.id).subscribe(r => {
-       if (!r.error) {
-        this.currentUser = r.data;
-       }
-     });
+     this.userService.getUserById(this.id)
   }
 }
 

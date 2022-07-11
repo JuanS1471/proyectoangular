@@ -38,7 +38,7 @@ export class UserService extends ApiClass {
     data : any
   }> {
     const response = { error: true, msg: 'No se ha podido otorgar el acceso', data: null};
-    return this.http.post<{error: boolean, msg: string, data: any}>(API_ROUTES.AUTH.LOGIN, data)
+    return this.http.post<{error: boolean, msg: string, data: any}>
     .pipe(
       map( r => {
         response.data = r;
